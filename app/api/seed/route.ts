@@ -1,24 +1,18 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server'
 import { PrismaClient } from '@prisma/client';
-import { log } from 'console';
-import { off } from 'process';
 
 const prisma = new PrismaClient();
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
-  const { offerInfo } = req.body;
-  // console.log(offerInfo);
+export async function POST(req: NextRequest) {
+  
+  console.log()
 
-  const offerInfoData = await JSON.parse(offerInfo);
-  console.log('offerInfo prsed', offerInfoData);
+  // await prisma.donationInfo.create({
+  //   data: {
+  //     companyName: data.companyName,
+  //     description: data.description,
+  //   },
+  // });
 
-  await prisma.donationInfo.create({
-    data: {
-      companyName: offerInfoData.companyName,
-      description: offerInfoData.description,
-    },
-  });
-  return new Response('whatever');
+  return new Response();
 }
-
-

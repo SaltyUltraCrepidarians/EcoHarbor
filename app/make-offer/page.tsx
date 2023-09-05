@@ -19,27 +19,19 @@ const MakeOffer = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(offerInfo)
-    try {
-      const response = await fetch('api/seed', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(offerInfo),
-      });
+    const res = await fetch('/api/seed', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(offerInfo),
+    });
 
-      if (response.status === 201) {
-        const data = await response.json();
-        console.log(data.message);
-        // You can reset the form or show a success message here
-      } else {
-        console.error('Error creating donation information');
-        // Handle error cases
-      }
-    } catch (error) {
-      console.error('Form Submission Error:', error);
+    if (!res.ok) {
+      throw new Error('Failed to fetch data');
     }
+
+    return res.json();
   };
 
   return (
