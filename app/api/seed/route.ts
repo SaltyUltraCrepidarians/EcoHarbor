@@ -1,18 +1,28 @@
+import { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-type Data = {
-  companyName: string;
-  description: string;
+export async function GET(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === 'POST') {
+    try {
+      const { companyName, description } = req.body;
+
+      // Validate the data if needed
+
+      const donationInfo = await prisma.donationInfo.create({
+        data: {
+          companyName,
+          description,
+        },
+      });
+
+      res.status(201).json({ message: 'Donation information created successfully', donationInfo });
+    } catch (error) {
+      res.status(500).json({ error: 'Error creating donation information' });
+    }
+  } else {
+    res.status(405).json({ error: 'Method not allowed' });
+  }
 };
 
-export async function GET(req: Request) {
-  await prisma.donationInfo.create({
-    data: {
-      companyName: 'Joe and the Juicy Juice',
-      description:
-        'Shitty sandwiches for a nice price. But the tuna and avocado is quite good',
-    },
-  });
-}
