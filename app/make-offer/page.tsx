@@ -44,14 +44,29 @@ const MakeOffer = () => {
           value={offerInfo.description}
         />
 
-        <label>Rating</label>
+        <label>Available</label>
         <input
           type="text"
-          name="rating"
+          name="available"
           onChange={handleChange}
-          value={offerInfo.rating}
+          value={offerInfo.available}
         />
-        
+
+        <label>Location</label>
+        <input
+          type="text"
+          name="location"
+          onChange={handleChange}
+          value={offerInfo.location}
+        />
+        <label>About</label>
+        <textarea
+          name="about"
+          cols={30}
+          rows={10}
+          onChange={handleChange}
+          value={offerInfo.about}
+        ></textarea>
 
         <button>Submit</button>
       </form>

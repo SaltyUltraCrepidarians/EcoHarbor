@@ -10,10 +10,9 @@ export async function POST(req: NextRequest, res: NextResponse) {
   await prisma.donationInfo.create({
     data: {
       description: offerInfoData.description,
-      rating: offerInfoData.rating,
       available: offerInfoData.available,
       location: offerInfoData.location,
-      about: offerInfoData.about
+      about: offerInfoData.about,
     },
   });
   return new Response('whatever');
