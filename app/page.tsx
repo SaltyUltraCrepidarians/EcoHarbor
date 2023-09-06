@@ -1,4 +1,5 @@
 import { PrismaClient, DonationInfo } from '@prisma/client';
+import OfferCard from './offerCard/OfferCard';
 
 const prisma = new PrismaClient();
 
@@ -28,7 +29,9 @@ export default async function Home() {
         <a href="/make-offer">go to form</a>
 
         <div className="">
-          {donationInfo.map((donationOffer) => {console.log(donationOffer)})}
+          {donationInfo.map((donationOffer) => 
+          <OfferCard donationOffer={donationOffer}/>
+          )}
         </div>
       </main>
     </>
