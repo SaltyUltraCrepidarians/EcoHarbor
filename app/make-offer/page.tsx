@@ -1,12 +1,10 @@
 'use client';
 import React, { useState } from 'react';
 import './make-offer.css';
+import { defaultFormValues } from './utils/defaultFormValues';
 
 const MakeOffer = () => {
-  const [offerInfo, setOfferInfo] = useState({
-    companyName: '',
-    description: ''
-  });
+  const [offerInfo, setOfferInfo] = useState(defaultFormValues);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -37,23 +35,23 @@ const MakeOffer = () => {
   return (
     <>
       <form onSubmit={handleSubmit} className="make-offer-form">
-        <label>Enter the name of your company</label>
+        <label>Description</label>
         <input
           type="text"
-          placeholder="Company name..."
-          name="companyName"
-          onChange={handleChange}
-          value={offerInfo.companyName}
-        />
-
-        <label>Description</label>
-        <textarea
+          placeholder="what are you offering?"
           name="description"
           onChange={handleChange}
           value={offerInfo.description}
-          cols={30}
-          rows={10}
-        ></textarea>
+        />
+
+        <label>Rating</label>
+        <input
+          type="text"
+          name="rating"
+          onChange={handleChange}
+          value={offerInfo.rating}
+        />
+        
 
         <button>Submit</button>
       </form>
