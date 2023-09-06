@@ -1,6 +1,16 @@
 .offer-card-section {
-  border-bottom: 1px solid black;
-  margin: 8px;
+  border: 1px solid black;
+  box-shadow: 0px 1px 2px 4px #eee;
+  border-radius: 8px;
+  margin: auto;
+  margin-bottom: 32px;
   padding: 8px;
-  max-width: 400px;
+  width: 85%;
+  transition: .2s ease-in-out;
+}
+
+.offer-card-section:hover{
+  box-shadow: 0px 1px 2px 8px #eee;
+  transition: .2s ease-in-out;
+  width: 90%;
 }

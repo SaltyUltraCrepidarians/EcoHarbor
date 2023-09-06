@@ -79,7 +79,6 @@ const MakeOffer = () => {
 
         <button>Submit</button>
       </form>
-      <a href="/">Go to offers</a>
     </>
   );
 };

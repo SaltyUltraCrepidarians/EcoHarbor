@@ -1,6 +1,6 @@
-import { PrismaClient, DonationInfo } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import OfferCard from './offerCard/OfferCard';
-import Navbar from './Components/Navbar';
+import './landingPage.css'
 
 const prisma = new PrismaClient();
 
@@ -17,7 +17,7 @@ const fetchDonationInfo = async () => {
     },
   });
 
-  return donationInfo
+  return donationInfo;
 };
 
 export default async function Home() {
@@ -25,10 +25,7 @@ export default async function Home() {
 
   return (
     <>
-    
-      <main>
-        <a href="/make-offer">go to form</a>
-
+      <main className='offer-cards-main'>
         <div className="">
           {donationInfo.map((donationOffer) => (
             <OfferCard donationOffer={donationOffer} />
@@ -38,4 +35,3 @@ export default async function Home() {
     </>
   );
 }
-
