@@ -1,14 +1,12 @@
-import { DonationInfo } from '@prisma/client'
-import React from 'react'
-import { OfferCard} from '../types'
-import { abort } from 'process';
+import React from 'react';
+import { OfferCard } from '../types';
 import './OfferCard.css';
 
 type Props = {
-    donationOffer: OfferCard
-  };
+  donationOffer: OfferCard;
+};
 
-export default function OfferCard({donationOffer}:Props) {
+export default function OfferCard({ donationOffer }: Props) {
   return (
     <section className="offer-card-section">
       <p>Description: {donationOffer.description}</p>

@@ -25,13 +25,13 @@ export default async function Home() {
   return (
     <>
       <nav></nav>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <main>
         <a href="/make-offer">go to form</a>
 
         <div className="">
-          {donationInfo.map((donationOffer) => 
-          <OfferCard donationOffer={donationOffer}/>
-          )}
+          {donationInfo.map((donationOffer) => (
+            <OfferCard donationOffer={donationOffer} />
+          ))}
         </div>
       </main>
     </>
