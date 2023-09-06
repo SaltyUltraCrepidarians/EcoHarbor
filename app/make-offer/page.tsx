@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './make-offer.css';
 import { defaultFormValues } from './utils/defaultFormValues';
+import { log } from 'console';
 
 const MakeOffer = () => {
   const [offerInfo, setOfferInfo] = useState(defaultFormValues);
@@ -25,6 +26,9 @@ const MakeOffer = () => {
       body: JSON.stringify(offerInfo),
     });
 
+    console.log('Submitted!');
+    setOfferInfo(defaultFormValues);
+
     if (!res.ok) {
       throw new Error('Failed to fetch data');
     }
@@ -42,6 +46,7 @@ const MakeOffer = () => {
           name="description"
           onChange={handleChange}
           value={offerInfo.description}
+          required
         />
 
         <label>Available</label>
@@ -50,6 +55,7 @@ const MakeOffer = () => {
           name="available"
           onChange={handleChange}
           value={offerInfo.available}
+          required
         />
 
         <label>Location</label>
@@ -58,6 +64,7 @@ const MakeOffer = () => {
           name="location"
           onChange={handleChange}
           value={offerInfo.location}
+          required
         />
         <label>About</label>
         <textarea
@@ -66,6 +73,7 @@ const MakeOffer = () => {
           rows={10}
           onChange={handleChange}
           value={offerInfo.about}
+          required
         ></textarea>
 
         <button>Submit</button>
