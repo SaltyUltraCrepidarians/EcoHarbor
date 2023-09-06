@@ -5,7 +5,7 @@ import './make-offer.css';
 const MakeOffer = () => {
   const [offerInfo, setOfferInfo] = useState({
     companyName: '',
-    description: '',
+    description: ''
   });
 
   const handleChange = (
@@ -31,7 +31,7 @@ const MakeOffer = () => {
       throw new Error('Failed to fetch data');
     }
 
-    return res.json();
+    return res.text;
   };
 
   return (
