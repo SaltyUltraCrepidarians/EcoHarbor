@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const prisma = new PrismaClient();
 
+// POST ONE OFFER CARD
 export async function POST(req: NextRequest, res: NextResponse) {
   const offerInfo = await req.text()
   const offerInfoData = await JSON.parse(offerInfo);
@@ -18,4 +19,4 @@ export async function POST(req: NextRequest, res: NextResponse) {
   return new Response('whatever');
 }
 
-
+// GET ONE OFFER CARD

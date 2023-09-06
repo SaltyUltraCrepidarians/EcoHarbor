@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import './make-offer.css';
 import { defaultFormValues } from './utils/defaultFormValues';
-import { log } from 'console';
 
 const MakeOffer = () => {
   const [offerInfo, setOfferInfo] = useState(defaultFormValues);

@@ -1,7 +1,37 @@
-import Image from 'next/image'
+import { PrismaClient, DonationInfo } from '@prisma/client';
 
-export default function Home() {
+const prisma = new PrismaClient();
+
+const fetchDonationInfo = async () => {
+  // THIS HAS TO GO TO BACK END - SECURITY FLAW
+  const donationInfo = await prisma.donationInfo.findMany({
+    select: {
+      id: true,
+      description: true,
+      available: true,
+      location: true,
+      about: true,
+      createdAt: true,
+    },
+  });
+
+  return donationInfo
+};
+
+export default async function Home() {
+  const donationInfo = await fetchDonationInfo();
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
+    <>
+      <nav></nav>
+      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <a href="/make-offer">go to form</a>
+
+        <div className="">
+          {donationInfo.map((donationOffer) => {console.log(donationOffer)})}
+        </div>
+      </main>
+    </>
   );
 }
+
