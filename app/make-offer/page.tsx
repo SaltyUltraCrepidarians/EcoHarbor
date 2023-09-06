@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './make-offer.css';
 import { defaultFormValues } from './utils/defaultFormValues';
+import Navbar from '../Components/Navbar';
 
 const MakeOffer = () => {
   const [offerInfo, setOfferInfo] = useState(defaultFormValues);
@@ -37,6 +38,7 @@ const MakeOffer = () => {
 
   return (
     <>
+      
       <form onSubmit={handleSubmit} className="make-offer-form">
         <label>Description</label>
         <input

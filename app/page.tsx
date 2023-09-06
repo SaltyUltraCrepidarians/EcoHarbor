@@ -1,5 +1,6 @@
 import { PrismaClient, DonationInfo } from '@prisma/client';
 import OfferCard from './offerCard/OfferCard';
+import Navbar from './Components/Navbar';
 
 const prisma = new PrismaClient();
 
@@ -24,7 +25,7 @@ export default async function Home() {
 
   return (
     <>
-      <nav></nav>
+    
       <main>
         <a href="/make-offer">go to form</a>
 
