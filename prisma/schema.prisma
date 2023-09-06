@@ -11,7 +11,16 @@ datasource db {
 }
 
 model DonationInfo {
-  id Int @id @default(autoincrement())
-  companyName String 
+  id          Int      @id @default(autoincrement())
   description String
+  rating      String
+  available   String
+  location    String
+  about       String
+  createdAt   DateTime @default(now())
 }
+
+// BusinessUser Model
+// CompanyName
+// Picture
+// Location
