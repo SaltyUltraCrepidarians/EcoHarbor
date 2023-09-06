@@ -2,6 +2,7 @@ import { DonationInfo } from '@prisma/client'
 import React from 'react'
 import { OfferCard} from '../types'
 import { abort } from 'process';
+import './OfferCard.css';
 
 type Props = {
     donationOffer: OfferCard
@@ -9,12 +10,12 @@ type Props = {
 
 export default function OfferCard({donationOffer}:Props) {
   return (
-    <section>
-        <p>{donationOffer.description}</p>
-        <p>{donationOffer.available}</p>
-        <p>{donationOffer.location}</p>
-        <p>{donationOffer.about}</p>
-        <p>{donationOffer.createdAt}</p> 
+    <section className="offer-card-section">
+      <p>Description: {donationOffer.description}</p>
+      <p>Available: {donationOffer.available}</p>
+      <p>Location: {donationOffer.location}</p>
+      <p>About: {donationOffer.about}</p>
+      <p>Created at: {String(donationOffer.createdAt)}</p>
     </section>
-  )
+  );
 }
