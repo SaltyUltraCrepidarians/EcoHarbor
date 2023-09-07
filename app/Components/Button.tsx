@@ -9,7 +9,7 @@ type Props = {
 
 export default function Button({ action, text, className }: Props) {
   return (
-    <button className={className} onClick={() => action}>
+    <button className='footer-button' onClick={() => action()}>
       {text}
     </button>
   );

@@ -1,18 +1,33 @@
 'use client';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import React from 'react';
 import Button from './Button';
 import './Footer.css';
 
 export default function Footer() {
-  return (
+  const { data: Session, status } = useSession();
+
+  if (status === 'authenticated') {
+    return(
     <footer className="footer">
-      {/* <button onClick={() => signIn()}>Join & Share</button> */}
       <Button
-        className="footer-button"
-        action={() => signIn()}
-        text={'Join & Share'}
-      />
+          className="footer-button"
+          action={() => console.log('Account Clicked')}
+          text={'Account'}
+        />
+
     </footer>
-  );
+    )
+
+  } else {
+    return (
+      <footer className="footer">
+        <Button
+          className="footer-button"
+          action={signIn}
+          text={'Join & Share'}
+        />
+      </footer>
+    );
+  }
 }

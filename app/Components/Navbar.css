@@ -6,8 +6,6 @@
     width: 100%;
     height: 70px;
     position: fixed;
-    /* background-color: #ffffff; */
-    /* border-bottom: 1px solid black; */
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(4px);
     z-index: 1000;
