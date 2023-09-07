@@ -3,6 +3,7 @@ import { signIn, useSession } from 'next-auth/react';
 import React from 'react';
 import Button from './Button';
 import './Footer.css';
+import Link from 'next/link';
 
 export default function Footer() {
   const { data: Session, status } = useSession();
@@ -10,11 +11,16 @@ export default function Footer() {
   if (status === 'authenticated') {
     return(
     <footer className="footer">
+      <Link
+      href={'/account'}
+      className="footer-button-loggedIn"
+      >
       <Button
           className="footer-button-loggedIn"
           action={() => console.log('Account Clicked')}
           text={'Account'}
         />
+        </Link>
           <Button
           className="footer-button-loggedIn"
           action={() => console.log("What's available")}

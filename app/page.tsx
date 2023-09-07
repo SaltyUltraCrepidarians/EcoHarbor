@@ -1,22 +1,8 @@
-// 'use client';
-
-// import './Components/landingPage.css';
-// import LandingPage from './Components/LandingPage';
-// import Footer from './Components/Footer';
-
-// export default function Home() {
-//   return (
-//     <>
-//       <LandingPage />
-//       <Footer />
-//     </>
-//   );
-// }
-
 import { PrismaClient } from '@prisma/client';
 import './Components/landingPage.css';
 import OfferCard from './offerCard/OfferCard';
 import Footer from './Components/Footer';
+import Navbar from './Components/Navbar';
 
 const prisma = new PrismaClient();
 
@@ -40,6 +26,7 @@ export default async function Home() {
 
   return (
     <>
+       <Navbar />
       <main className="offer-cards-main">
         <div className="">
           {donationInfo.map((donationOffer) => (
