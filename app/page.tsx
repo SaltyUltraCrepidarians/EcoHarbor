@@ -1,36 +1,43 @@
+'use client';
+
 import { PrismaClient } from '@prisma/client';
 import OfferCard from './offerCard/OfferCard';
-import './Components/landingPage.css'
+import './Components/landingPage.css';
+import LandingPage from './Components/LandingPage';
+import Footer from './Components/Footer';
 
-const prisma = new PrismaClient();
+// const prisma = new PrismaClient();
 
-const fetchDonationInfo = async () => {
-  const donationInfo = await prisma.donationInfo.findMany({
-    select: {
-      id: true,
-      description: true,
-      available: true,
-      location: true,
-      about: true,
-      createdAt: true,
-    },
-  });
+// const fetchDonationInfo = async () => {
+//   const donationInfo = await prisma.donationInfo.findMany({
+//     select: {
+//       id: true,
+//       description: true,
+//       available: true,
+//       location: true,
+//       about: true,
+//       createdAt: true,
+//     },
+//   });
 
-  return donationInfo;
-};
+//   return donationInfo;
+// };
 
-export default async function Home() {
-  const donationInfo = await fetchDonationInfo();
+export default function Home() {
+  // const donationInfo = await fetchDonationInfo();
 
   return (
     <>
-      <main className='offer-cards-main'>
+      {/* <main className="offer-cards-main">
         <div className="">
           {donationInfo.map((donationOffer) => (
             <OfferCard donationOffer={donationOffer} />
           ))}
         </div>
-      </main>
+      </main> */}
+
+      <LandingPage />
+      <Footer />
     </>
   );
 }
