@@ -5,8 +5,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const id = String(process.env.GOOGLE_ID);
-const secret = String(process.env.GOOGLE_SECRET);
+const id = String(process.env.CLIENT_ID);
+const secret = String(process.env.CLIENT_SECRET);
 export const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
