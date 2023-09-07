@@ -22,6 +22,7 @@ export default function RootLayout({
         <ProviderWrap>
           <Navbar />
           {children}
+
         </ProviderWrap>
       </body>
     </html>

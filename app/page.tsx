@@ -5,7 +5,6 @@ import './Components/landingPage.css'
 const prisma = new PrismaClient();
 
 const fetchDonationInfo = async () => {
-  // THIS HAS TO GO TO BACK END - SECURITY FLAW
   const donationInfo = await prisma.donationInfo.findMany({
     select: {
       id: true,

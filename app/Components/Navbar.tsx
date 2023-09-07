@@ -1,11 +1,11 @@
 'use client';
 import './Navbar.css'
-
 import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
-import logo from '../assets/eco-harbor-circle.png';
+import logo from '../assets/logo-no-background.png';
 import { signIn, signOut } from 'next-auth/react';
+
 export default function Navbar() {
   return (
     <nav className="navbar">
