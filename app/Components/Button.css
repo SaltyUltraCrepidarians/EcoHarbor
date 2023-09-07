@@ -10,3 +10,16 @@
   background-color: white;
   border-top: solid 1px black;
 }
+.footer-button-loggedIn{
+  position:relative;
+  border: none;
+  bottom: 0;
+  height: 50px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-top: solid 1px black;
+
+}

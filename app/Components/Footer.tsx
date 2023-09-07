@@ -11,9 +11,14 @@ export default function Footer() {
     return(
     <footer className="footer">
       <Button
-          className="footer-button"
+          className="footer-button-loggedIn"
           action={() => console.log('Account Clicked')}
           text={'Account'}
+        />
+          <Button
+          className="footer-button-loggedIn"
+          action={() => console.log("What's available")}
+          text={"What's available"}
         />
 
     </footer>
