@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import OfferCard from './offerCard/OfferCard';
-import './landingPage.css'
+import './Components/landingPage.css'
 
 const prisma = new PrismaClient();
 
