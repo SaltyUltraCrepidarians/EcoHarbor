@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import Footer from '../Components/Footer';
 import './account.css';
+import Profile from './AccountComponents/Profile';
+import AccountForm from './AccountComponents/AccountForm';
+import Giveaways from './AccountComponents/Giveaways';
 
 export default function page() {
   const [selection, setSelection] = useState('profile');
@@ -39,9 +42,9 @@ export default function page() {
           Giveaways
         </button>
       </div>
-      {selection === profile && <div>this is profile</div>}
-      {selection === form && <div>this is form</div>}
-      {selection === giveaways && <div>this is giveaways</div>}
+      {selection === profile && <Profile />}
+      {selection === form && <AccountForm />}
+      {selection === giveaways && <Giveaways />}
       <Footer />
     </>
   );
