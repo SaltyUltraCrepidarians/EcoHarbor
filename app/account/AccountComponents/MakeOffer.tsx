@@ -36,7 +36,7 @@ const MakeOffer = () => {
   };
 
   return (
-    <>
+    <section className='make-offer-wrapper'>
       
       <form onSubmit={handleSubmit} className="make-offer-form">
         <label>Description</label>
@@ -78,7 +78,7 @@ const MakeOffer = () => {
 
         <button>Submit</button>
       </form>
-    </>
+    </section>
   );
 };
 

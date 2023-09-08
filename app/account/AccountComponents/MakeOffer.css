@@ -1,8 +1,16 @@
 .make-offer-form {
+  max-width: 412px;
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  align-self: center;
   border: 1px solid black;
-    border-radius: 6px;
-    padding: 8px;
+  border-radius: 6px;
+  padding: 8px;
+  margin: 24px;
+}
+.make-offer-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
 }
