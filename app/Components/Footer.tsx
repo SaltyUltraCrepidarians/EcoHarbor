@@ -9,34 +9,24 @@ export default function Footer() {
   const { data: Session, status } = useSession();
 
   if (status === 'authenticated') {
-    return(
-    <footer className="footer">
-      <Link
-      href={'/account'}
-      className="footer-button-loggedIn"
-      >
-      <Button
-          className="footer-button-loggedIn"
-          action={() => console.log('Account Clicked')}
-          text={'Account'}
-        />
+    return (
+      <footer className="footer">
+        <Link href={'/account'} className="footer-button-loggedIn">
+          Account
         </Link>
-          <Button
-          className="footer-button-loggedIn"
-          action={() => console.log("What's available")}
-          text={"What's available"}
-        />
 
-    </footer>
-    )
-
+        <Link href={'/'} className="footer-button-loggedIn">
+          What's Available
+        </Link>
+      </footer>
+    );
   } else {
     return (
       <footer className="footer">
         <Button
           className="footer-button"
           action={signIn}
-          text={'Join & Share'}
+          text={'Join to Share'}
         />
       </footer>
     );

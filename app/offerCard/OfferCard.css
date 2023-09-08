@@ -6,5 +6,7 @@
   margin-bottom: 32px;
   padding: 8px;
   width: 85%;
-  /* transition: .2s ease-in-out; */
+  max-width: 412px;
+  /* height: 320px; */
+  cursor: pointer;
 }

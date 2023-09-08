@@ -10,6 +10,7 @@
   background-color: white;
   border-top: solid 1px black;
 }
+
 .footer-button-loggedIn{
   position:relative;
   border: none;
@@ -21,6 +22,6 @@
   align-items: center;
   background-color: white;
   border-top: solid 1px black;
+  color: #636363;
   text-decoration: none;
-
 }
