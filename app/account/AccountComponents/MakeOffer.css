@@ -1,7 +1,7 @@
 .make-offer-form {
   max-width: 412px; /* Set the maximum width */
   width: 100%; /* Make the element take up the full width of its parent */
-  margin: 24px; 
+  /* margin: 24px;  */
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -9,9 +9,11 @@
   border-radius: 6px;
   padding: 8px;
 }
+
 .make-offer-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+  padding: 24px;
 }
+
