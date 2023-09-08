@@ -1,0 +1,10 @@
+.account-buttons-wrapper {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px
+}
+
+.account-button {
+  padding: 4px;
+  width: 90px;
+}

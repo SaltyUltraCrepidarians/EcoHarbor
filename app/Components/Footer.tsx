@@ -11,12 +11,11 @@ export default function Footer() {
   if (status === 'authenticated') {
     return (
       <footer className="footer">
-        <Link href={'/account'} className="footer-button-loggedIn">
-          Account
-        </Link>
-
         <Link href={'/'} className="footer-button-loggedIn">
           What's Available
+        </Link>
+        <Link href={'/account'} className="footer-button-loggedIn">
+          Account
         </Link>
       </footer>
     );
