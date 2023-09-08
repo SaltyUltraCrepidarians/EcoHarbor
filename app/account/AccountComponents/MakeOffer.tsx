@@ -36,47 +36,55 @@ const MakeOffer = () => {
   };
 
   return (
-    <section className='make-offer-wrapper'>
-      
+    <section className="make-offer-wrapper">
       <form onSubmit={handleSubmit} className="make-offer-form">
-        <label>Description</label>
-        <input
-          type="text"
-          placeholder="what are you offering?"
-          name="description"
-          onChange={handleChange}
-          value={offerInfo.description}
-          required
-        />
+        <div className="label-input-wrap">
+          <label>Description</label>
+          <input
+            type="text"
+            placeholder="what are you offering?"
+            name="description"
+            onChange={handleChange}
+            value={offerInfo.description}
+            required
+          />
+        </div>
 
-        <label>Available</label>
-        <input
-          type="text"
-          name="available"
-          onChange={handleChange}
-          value={offerInfo.available}
-          required
-        />
+        <div className="label-input-wrap">
+          <label>Available</label>
+          <input
+            type="text"
+            name="available"
+            onChange={handleChange}
+            value={offerInfo.available}
+            required
+          />
+        </div>
 
-        <label>Location</label>
-        <input
-          type="text"
-          name="location"
-          onChange={handleChange}
-          value={offerInfo.location}
-          required
-        />
-        <label>About</label>
-        <textarea
-          name="about"
-          cols={30}
-          rows={10}
-          onChange={handleChange}
-          value={offerInfo.about}
-          required
-        ></textarea>
+        <div className="label-input-wrap">
+          <label>Location</label>
+          <input
+            type="text"
+            name="location"
+            onChange={handleChange}
+            value={offerInfo.location}
+            required
+          />
+        </div>
 
-        <button>Submit</button>
+        <div className="label-input-wrap">
+          <label>About</label>
+          <textarea
+            name="about"
+            cols={30}
+            rows={10}
+            onChange={handleChange}
+            value={offerInfo.about}
+            required
+          ></textarea>
+        </div>
+
+        <button className="account-button">Submit</button>
       </form>
     </section>
   );

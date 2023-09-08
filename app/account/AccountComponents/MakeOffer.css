@@ -4,6 +4,7 @@
   /* margin: 24px;  */
   display: flex;
   flex-direction: column;
+  /* gap: 10px; */
   align-self: center;
   border: 1px solid black;
   border-radius: 6px;
@@ -17,3 +18,13 @@
   padding: 24px;
 }
 
+.label-input-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+form .account-button {
+  width: 100%;
+}
