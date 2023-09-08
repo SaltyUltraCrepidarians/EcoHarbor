@@ -1,8 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import './make-offer.css';
-import { defaultFormValues } from './utils/defaultFormValues';
-import Navbar from '../Components/Navbar';
+import './MakeOffer.css';
+import { defaultFormValues } from './makeOfferDefaultValues';
 
 const MakeOffer = () => {
   const [offerInfo, setOfferInfo] = useState(defaultFormValues);
