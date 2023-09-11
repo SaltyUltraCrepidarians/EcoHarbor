@@ -7,7 +7,8 @@ dotenv.config();
 
 const id = String(process.env.CLIENT_ID);
 const secret = String(process.env.CLIENT_SECRET);
-export const authOptions: NextAuthOptions = {
+
+const authHandler = NextAuth({
   providers: [
     GoogleProvider({
       clientId: id,
@@ -15,5 +16,6 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
-};
-export default NextAuth(authOptions);
+});
+
+export { authHandler as GET, authHandler as POST };
