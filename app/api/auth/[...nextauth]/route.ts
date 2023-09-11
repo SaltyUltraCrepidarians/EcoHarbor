@@ -8,7 +8,7 @@ dotenv.config();
 const id = String(process.env.CLIENT_ID);
 const secret = String(process.env.CLIENT_SECRET);
 
-const authHandler = NextAuth({
+const authHandler: NextAuthOptions = NextAuth({
   providers: [
     GoogleProvider({
       clientId: id,
