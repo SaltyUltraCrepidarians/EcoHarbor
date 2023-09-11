@@ -22,7 +22,7 @@ model DonationInfo {
 }
 
 model UserInfo {
-  id              Int      @id @default(autoincrement())
+  id              Int            @id @default(autoincrement())
   donationInfo    DonationInfo[]
   personalName    String
   personalEmail   String
@@ -32,6 +32,5 @@ model UserInfo {
   businessPhoneNr String
   businessImage   String
   businessAdress  String
-  Rating          Int
+  rating          Int
 }
-

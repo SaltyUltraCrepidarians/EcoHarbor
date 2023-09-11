@@ -10,13 +10,14 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
   await prisma.donationInfo.create({
     data: {
+      userInfoId: offerInfoData.userInfoId,
       description: offerInfoData.description,
       available: offerInfoData.available,
       location: offerInfoData.location,
       about: offerInfoData.about,
     },
   });
-  return new Response('whatever');
+  return new Response('Posted to donationInfo');
 }
 
 // GET ONE OFFER CARD

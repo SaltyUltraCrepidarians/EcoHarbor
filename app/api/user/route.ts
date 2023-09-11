@@ -8,15 +8,20 @@ export async function POST(req: NextRequest, res: NextResponse) {
   const userData = await req.text()
   const userInfoData = await JSON.parse(userData);
 
-  await prisma. create({
+  await prisma.userInfo.create({
     data: {
-      description: userInfoData.description,
-      available: userInfoData.available,
-      location: userInfoData.location,
-      about: userInfoData.about,
+      personalName: userInfoData.personalName,
+      personalEmail: userInfoData.personalEmail,
+      personalImage: userInfoData.personalImage,
+      businessName: userInfoData.businessName,
+      businessEmail: userInfoData.businessEmail,
+      businessPhoneNr: userInfoData.businessPhoneNr,
+      businessImage: userInfoData.businessImage,
+      businessAdress: userInfoData.businessAdress,
+      rating: userInfoData.rating,
     },
   });
-  return new Response('whatever');
+  return new Response('Posted to userInfo');
 }
 
 
