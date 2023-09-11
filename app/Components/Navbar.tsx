@@ -9,9 +9,17 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
+// THIS FUNCTION SHOULD BE PART OF OUR
+// API/USER END POINT AND HERE WE NEED TO MAKE A FETCH
 const fetchUserOnLogin = async (userSessionEmail: any) => {
-  const userEntryInDb = await prisma.userInfo.findUnique({});;
-
+  const userEntryInDb = await prisma.userInfo.findUnique({
+    where: {
+      personalEmail: userSessionEmail
+    },
+    select: {
+      personalEmail: true
+    }
+  });
   return userEntryInDb;
 };
 
@@ -23,7 +31,9 @@ export default function Navbar() {
     perosnalImage: session?.user?.image,
   };
 
-  const handleLogin = () => {};
+  const handleLogin = () => {
+    fetchUserOnLogin(session?.user?.email)
+  };
 
   return (
     <nav className="navbar">
@@ -32,9 +42,7 @@ export default function Navbar() {
       </Link>
 
       <button
-        onClick={() => {
-          console.log(session);
-        }}
+        onClick={handleLogin}
       >
         TEST ADD USER
       </button>

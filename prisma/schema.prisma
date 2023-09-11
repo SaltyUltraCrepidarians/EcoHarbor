@@ -24,8 +24,8 @@ model DonationInfo {
 model UserInfo {
   id              Int            @id @default(autoincrement())
   donationInfo    DonationInfo[]
+  personalEmail   String         @unique
   personalName    String
-  personalEmail   String
   personalImage   String
   businessName    String
   businessEmail   String
