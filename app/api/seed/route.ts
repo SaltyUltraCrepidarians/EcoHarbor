@@ -16,7 +16,9 @@ export async function POST(req: NextRequest, res: NextResponse) {
       about: offerInfoData.about,
     },
   });
-  return new Response('whatever');
+  return new Response('New DonationInfo Created');
 }
 
-// GET ONE OFFER CARD
+// POST NEW USER FROM GOOGLE SESSION
+
+// POST NEW USER FROM BUSINESS INFO FORM
