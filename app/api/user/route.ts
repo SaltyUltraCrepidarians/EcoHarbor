@@ -5,10 +5,6 @@ const prisma = new PrismaClient();
 
 
 export async function POST(req: NextRequest, res: NextResponse) {
-
-  
-
-
   const userData = await req.text()
   const userInfoData = await JSON.parse(userData);
 
@@ -28,4 +24,21 @@ export async function POST(req: NextRequest, res: NextResponse) {
   return new Response('Posted to userInfo');
 }
 
+export async function GET(req: NextRequest, res: NextResponse) {
+  const sessionEmail = await req.text()
+  const email = await JSON.parse(sessionEmail);
 
+  const databaseUser = await prisma.userInfo.findUnique({
+    where: {
+      personalEmail: email,
+    },
+    select: {
+      id: true,
+      personalEmail: true,
+    },
+  }); 
+
+  console.log(databaseUser)
+  
+  return new Response('Posted to userInfo');
+}

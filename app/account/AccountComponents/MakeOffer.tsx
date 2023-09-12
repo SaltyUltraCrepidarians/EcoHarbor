@@ -17,7 +17,7 @@ const MakeOffer = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetch('/api/seed', {
+    const res = await fetch('/api/offer', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
