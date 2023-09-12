@@ -21,10 +21,6 @@ const authHandler: NextAuthOptions = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async signIn({ user, account, email }) {
-      console.log('Happy user: ', JSON.stringify(user));
-      console.log('happy account', JSON.stringify(account));
-      console.log('happy email: ', JSON.stringify(email));
-
       handleLogin(user);
       return true;
     },
