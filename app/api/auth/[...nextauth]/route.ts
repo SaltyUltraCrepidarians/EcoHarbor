@@ -11,7 +11,7 @@ dotenv.config();
 const id = String(process.env.CLIENT_ID);
 const secret = String(process.env.CLIENT_SECRET);
 
-const authHandler: NextAuthOptions = NextAuth({
+export const authHandler: NextAuthOptions = NextAuth({
   providers: [
     GoogleProvider({
       clientId: id,
@@ -24,6 +24,7 @@ const authHandler: NextAuthOptions = NextAuth({
       handleLogin(user);
       return true;
     },
+    
   },
 });
 
@@ -50,6 +51,7 @@ const handleLogin = async (loginUser: User) => {
           businessImage: '',
           businessAdress: '',
           rating: 0,
+          profile_completed: false
         },
       });
       return newUser;

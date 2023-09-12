@@ -33,4 +33,5 @@ model UserInfo {
   businessImage   String
   businessAdress  String
   rating          Int
+  profile_completed Boolean
 }

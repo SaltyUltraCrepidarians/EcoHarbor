@@ -13,12 +13,11 @@ export default function Navbar() {
     // const newUser = await fetch DB (session.email)
     // if (true newuser) -> changeState -> popup form
     // else (false newuser) -> do nothing
-    const res = await fetch(`/api/user/${session?.user?.email}`, {
+    const res = await fetch(`/api/user/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(session?.user?.email),
     });
     console.log('Check if new user called ');
 
