@@ -3,9 +3,8 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const prisma = new PrismaClient();
 
-
 export async function POST(req: NextRequest, res: NextResponse) {
-  const userData = await req.text()
+  const userData = await req.text();
   const userInfoData = await JSON.parse(userData);
 
   await prisma.userInfo.create({
@@ -25,7 +24,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 }
 
 export async function GET(req: NextRequest, res: NextResponse) {
-  const sessionEmail = await req.text()
+  const sessionEmail = await req.text();
   const email = await JSON.parse(sessionEmail);
 
   const databaseUser = await prisma.userInfo.findUnique({
@@ -36,9 +35,9 @@ export async function GET(req: NextRequest, res: NextResponse) {
       id: true,
       personalEmail: true,
     },
-  }); 
+  });
 
-  console.log(databaseUser)
-  
+  console.log(databaseUser);
+
   return new Response('Posted to userInfo');
 }
