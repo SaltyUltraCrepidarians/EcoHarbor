@@ -4,3 +4,11 @@ export const defaultFormValues = {
   location: '',
   about: '',
 };
+
+export const defaultRegistrationValues = {
+  businessName: '',
+  businessEmail: '',
+  businessPhoneNr: '',
+  businessImage: '',
+  businessAdress: '',
+};

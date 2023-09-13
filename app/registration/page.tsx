@@ -1,7 +1,10 @@
 import React from 'react'
+import Registration from './Components/Registration'
 
-export default function page() {
+export default async function page() {
   return (
-    <div>This is the registration path</div>
+    <div>
+      <Registration/>
+    </div>
   )
 }
