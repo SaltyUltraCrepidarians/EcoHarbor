@@ -15,7 +15,6 @@ export default function page() {
 
   const handleSelection = (e: React.MouseEvent<HTMLButtonElement>) => {
     setSelection(e.currentTarget.name);
-    console.log('this is the selection', e.currentTarget.name);
   };
   return (
     <>

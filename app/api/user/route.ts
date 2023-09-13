@@ -27,7 +27,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
 export async function GET(req: NextRequest, res: NextResponse) {
   const session = await getServerSession(authHandler);
-  console.log('happy json session', JSON.stringify(session));
 
   if (session?.user !== null && session?.user?.email !== null) {
     const databaseUser = await prisma.userInfo.findUnique({
@@ -35,8 +34,6 @@ export async function GET(req: NextRequest, res: NextResponse) {
         personalEmail: session?.user?.email,
       },
     });
-
-    console.log('database user', databaseUser);
 
     return new Response(JSON.stringify(databaseUser));
   }

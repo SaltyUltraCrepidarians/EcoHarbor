@@ -5,10 +5,12 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import logo from '../assets/logo-no-background.png';
 import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+
 
 export default function Navbar() {
+  const router = useRouter()
   const { data: session, status } = useSession();
-  const [userData, setUserData] = useState('No data yet');
 
   const checkIfNewUser = async () => {
     const res = await fetch(`/api/user`, {
@@ -21,7 +23,7 @@ export default function Navbar() {
       throw new Error('Failed to fetch data');
     }
     const response = await res.text();
-
+    
     return response;
   };
 
@@ -29,12 +31,13 @@ export default function Navbar() {
     if (status !== 'authenticated') return;
 
     (async () => {
-      const newUser = await checkIfNewUser();
-      setUserData(newUser);
-      console.log('HERE IS THE HAPPY NEW USER', newUser);
+      const newUser = JSON.parse(await checkIfNewUser());
+      if (newUser.businessAdress === '') {
+        console.log('first login')
+        router.push('/registration')
+      }
     })();
   }, [session]);
-  console.log('HERE IS THE HAPPY USER DATA', userData);
 
   return (
     <nav className="navbar">

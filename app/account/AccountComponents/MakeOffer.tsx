@@ -25,7 +25,6 @@ const MakeOffer = () => {
       body: JSON.stringify(offerInfo),
     });
 
-    console.log('Submitted!');
     setOfferInfo(defaultFormValues);
 
     if (!res.ok) {
