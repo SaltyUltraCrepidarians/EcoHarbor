@@ -2,8 +2,7 @@ import NextAuth from 'next-auth';
 import type { NextAuthOptions, User } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import dotenv from 'dotenv';
-import { log } from 'console';
-import { Prisma, PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 dotenv.config();

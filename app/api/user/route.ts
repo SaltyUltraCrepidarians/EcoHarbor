@@ -26,9 +26,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 }
 
 export async function GET(req: NextRequest, res: NextResponse) {
-  // const sessionEmail = await req.text();
   const session = await getServerSession(authHandler);
-  // const email = await JSON.parse(sessionEmail);
   console.log('happy json session', JSON.stringify(session));
 
   if (session?.user !== null && session?.user?.email !== null) {
