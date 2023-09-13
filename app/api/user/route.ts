@@ -1,5 +1,7 @@
 import { PrismaClient } from '@prisma/client';
+import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
+import { authHandler } from '../auth/[...nextauth]/route';
 
 const prisma = new PrismaClient();
 
@@ -24,20 +26,20 @@ export async function POST(req: NextRequest, res: NextResponse) {
 }
 
 export async function GET(req: NextRequest, res: NextResponse) {
-  const sessionEmail = await req.text();
-  const email = await JSON.parse(sessionEmail);
+  // const sessionEmail = await req.text();
+  const session = await getServerSession(authHandler);
+  // const email = await JSON.parse(sessionEmail);
+  console.log('happy json session', JSON.stringify(session));
 
-  const databaseUser = await prisma.userInfo.findUnique({
-    where: {
-      personalEmail: email,
-    },
-    select: {
-      id: true,
-      personalEmail: true,
-    },
-  });
+  if (session?.user !== null && session?.user?.email !== null) {
+    const databaseUser = await prisma.userInfo.findUnique({
+      where: {
+        personalEmail: session?.user?.email,
+      },
+    });
 
-  console.log(databaseUser);
+    console.log('database user', databaseUser);
 
-  return new Response('Posted to userInfo');
+    return new Response(JSON.stringify(databaseUser));
+  }
 }
