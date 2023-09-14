@@ -18,6 +18,7 @@ export default function Registration() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('Registration info', registrationInfo);
+    
     try {
       const res = await fetch('/api/registration', {
         method: 'POST',
@@ -29,6 +30,7 @@ export default function Registration() {
 
       setRegistrationInfo(defaultRegistrationValues);
       return res.text;
+      
     } catch (err) {
       console.error('Failed to fetch data', err);
     }
