@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './Registration.css';
 import { defaultRegistrationValues } from '@/app/account/AccountComponents/makeOfferDefaultValues';
+import { useRouter } from 'next/navigation';
 
 export default function Registration() {
   const [registrationInfo, setRegistrationInfo] = useState(
@@ -14,10 +15,11 @@ export default function Registration() {
       [e.target.name]: e.target.value,
     }));
   };
+  const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Registration info', registrationInfo);
+   router.push('/account')
     
     try {
       const res = await fetch('/api/registration', {
