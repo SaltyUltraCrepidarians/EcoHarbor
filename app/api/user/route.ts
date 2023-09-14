@@ -5,6 +5,7 @@ import { authHandler } from '../auth/[...nextauth]/route';
 
 const prisma = new PrismaClient();
 
+
 export async function POST(req: NextRequest, res: NextResponse) {
   const userData = await req.text();
   const userInfoData = await JSON.parse(userData);
