@@ -49,7 +49,7 @@ export default function EditProfile({ handleEdit, userData }: Props) {
           />
         </div>
 
-        <div className="label-input-wrap">
+        {/* <div className="label-input-wrap">
           <label>Personal Email:</label>
           <input
             type="text"
@@ -58,7 +58,7 @@ export default function EditProfile({ handleEdit, userData }: Props) {
             value={profileValues.personalEmail}
             required
           />
-        </div>
+        </div> */}
 
         <div className="label-input-wrap">
           <p>BUSINESS INFO (Shown):</p>
