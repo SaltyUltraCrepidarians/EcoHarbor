@@ -2,18 +2,25 @@ import Button from '@/app/Components/Button';
 import { signOut, useSession } from 'next-auth/react';
 import React from 'react';
 import './Profile.css';
+import { User } from '@/app/types';
 
-export default function Profile() {
-  const {data: session, status} = useSession()
+type Props = {
+  userData: User;
+};
+
+export default function Profile({ userData }: Props) {
+  const { data: session, status } = useSession();
 
   return (
     <section className="profile-wrapper">
-      <img src="" alt="profile-image" />
-      <h3>WELCOME username</h3>
+      <img src={userData.businessImage} alt="profile-image" />
+      <h3>Welcome, {userData.personalName.split(' ')[0]}!</h3>
 
-      <p>Name:</p>
-      <p>Email: {session?.user?.email}</p>
-      <p>Phone number:</p>
+      <p>PERSONAL INFO: </p>
+      <p>Personal name: {userData.personalName}</p>
+      <p>Personal email: {session?.user?.email}</p>
+      <p>BUSINESS INFO: </p>
+      <p>Phone number: {}</p>
       <p>Adress:</p>
 
       <Button

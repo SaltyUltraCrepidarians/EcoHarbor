@@ -6,3 +6,16 @@ export type OfferCard = {
   about: string;
   createdAt: Date;
 };
+
+export type User = {
+  id: number;
+  personalEmail: string;
+  personalName: string;
+  personalImage: string;
+  businessName: string;
+  businessEmail: string;
+  businessPhoneNr: string;
+  businessImage: string;
+  businessAdress: string;
+  rating: number;
+};

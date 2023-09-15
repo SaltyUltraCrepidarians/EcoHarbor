@@ -1,50 +1,36 @@
-'use client';
-import React, { useState } from 'react';
-import Footer from '../Components/Footer';
-import './account.css';
-import Profile from './AccountComponents/Profile';
-import AccountForm from './AccountComponents/AccountForm';
-import Giveaways from './AccountComponents/Giveaways';
+import React from 'react';
+import AccountPage from './AccountComponents/AccountPage';
+import { getServerSession } from 'next-auth';
+import { authHandler } from '../api/auth/[...nextauth]/route';
+import { PrismaClient } from '@prisma/client';
+import { User } from '../types';
 
-export default function page() {
-  const [selection, setSelection] = useState('profile');
+const prisma = new PrismaClient();
 
-  const profile = 'profile';
-  const form = 'form';
-  const giveaways = 'giveAways';
+const fetchData = async () => {
+  const session = await getServerSession(authHandler);
 
-  const handleSelection = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setSelection(e.currentTarget.name);
-  };
-  return (
-    <>
-      <div className="account-buttons-wrapper">
-        <button
-          className="account-button"
-          onClick={handleSelection}
-          name={profile}
-        >
-          Profile
-        </button>
-        <button
-          className="account-button"
-          onClick={handleSelection}
-          name={form}
-        >
-          Form
-        </button>
-        <button
-          className="account-button"
-          onClick={handleSelection}
-          name={giveaways}
-        >
-          Giveaways
-        </button>
-      </div>
-      {selection === profile && <Profile />}
-      {selection === form && <AccountForm />}
-      {selection === giveaways && <Giveaways />}
-      <Footer />
-    </>
-  );
+  if (session?.user !== null && session?.user?.email !== null) {
+    const databaseUser = await prisma.userInfo.findUnique({
+      where: {
+        personalEmail: session?.user?.email,
+      },
+    });
+
+    return databaseUser as User;
+  }
+
+  if (!session) throw new Error();
+};
+
+export default async function page() {
+  const userData = await fetchData();
+
+  if (userData) {
+    return (
+      <>
+        <AccountPage userData={userData} />
+      </>
+    );
+  }
 }
