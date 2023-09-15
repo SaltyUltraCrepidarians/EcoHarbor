@@ -5,13 +5,14 @@ import './account.css';
 import Profile from './Profile';
 import AccountForm from './AccountForm';
 import Giveaways from './Giveaways';
-import { User } from '@/app/types';
+import { OfferCard, User } from '@/app/types';
 
 type Props = {
   userData: User;
+  donationData: OfferCard[]
 };
 
-export default function page({ userData }: Props) {
+export default function page({ userData, donationData }: Props) {
   const [selection, setSelection] = useState('profile');
 
   const profile = 'profile';
@@ -49,7 +50,7 @@ export default function page({ userData }: Props) {
       </div>
       {selection === profile && <Profile userData={userData} />}
       {selection === form && <AccountForm />}
-      {selection === giveaways && <Giveaways />}
+      {selection === giveaways && <Giveaways donationData={donationData}/>}
       <Footer />
     </>
   );
