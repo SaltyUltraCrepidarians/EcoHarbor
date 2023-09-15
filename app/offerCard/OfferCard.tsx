@@ -1,9 +1,9 @@
 import React from 'react';
-import { OfferCard } from '../types';
+import { OfferCardType } from '../types';
 import './OfferCard.css';
 
 type Props = {
-  donationOffer: OfferCard;
+  donationOffer: OfferCardType;
 };
 
 export default function OfferCard({ donationOffer }: Props) {

@@ -1,14 +1,17 @@
-import { OfferCard } from '@/app/types';
+import OfferCard from '@/app/offerCard/OfferCard';
+import { OfferCardType } from '@/app/types';
 import React from 'react';
 
 type Props = {
-  donationData: OfferCard[]
-}
+  donationData: OfferCardType[];
+};
 
-export default function Giveaways({donationData}: Props) {
-  return <>
-  {donationData.map(donation => {
-    <div>DONATION</div>
-  })}
-  </>;
+export default function Giveaways({ donationData }: Props) {
+  return (
+    <>
+      {donationData.map((donation) => {
+        return <OfferCard donationOffer={donation} />;
+      })}
+    </>
+  );
 }

@@ -1,4 +1,4 @@
-export type OfferCard = {
+export type OfferCardType = {
   id?: number;
   description: string;
   available: string;

@@ -5,11 +5,11 @@ import './account.css';
 import Profile from './Profile';
 import AccountForm from './AccountForm';
 import Giveaways from './Giveaways';
-import { OfferCard, User } from '@/app/types';
+import { OfferCardType, User } from '@/app/types';
 
 type Props = {
   userData: User;
-  donationData: OfferCard[]
+  donationData: OfferCardType[];
 };
 
 export default function page({ userData, donationData }: Props) {
