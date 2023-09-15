@@ -1,14 +1,14 @@
 import Button from '@/app/Components/Button';
 import { User } from '@/app/types';
-import { signOut } from 'next-auth/react';
 import React, { useState } from 'react';
 
 type Props = {
+  updateUserData: Function;
   handleEdit: Function;
   userData: User;
 };
 
-export default function EditProfile({ handleEdit, userData }: Props) {
+export default function EditProfile({ handleEdit, userData, updateUserData }: Props) {
   const [profileValues, setProfileValues] = useState<User>({
     personalImage: userData.personalImage,
     personalName: userData.personalName,
@@ -27,28 +27,13 @@ export default function EditProfile({ handleEdit, userData }: Props) {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const res = await fetch('/api/offer', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(offerInfo),
-    });
-
-    setOfferInfo(defaultFormValues);
-
-    if (!res.ok) {
-      throw new Error('Failed to fetch data');
-    }
-
-    return res.text;
-  };
+  const handleSubmit = () => {
+    updateUserData(profileValues)
+  }
 
   return (
     <section className="profile-wrapper">
-      <form>
+      <form onSubmit={handleSubmit}>
         <img src={userData.personalImage} alt="profile-image" />
         <h3>Welcome, {userData.personalName.split(' ')[0]}!</h3>
 

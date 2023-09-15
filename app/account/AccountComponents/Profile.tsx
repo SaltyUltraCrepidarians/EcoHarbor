@@ -6,10 +6,11 @@ import { User } from '@/app/types';
 import EditProfile from './EditProfile';
 
 type Props = {
+  updateUserData: Function;
   userData: User;
 };
 
-export default function Profile({ userData }: Props) {
+export default function Profile({ userData, updateUserData }: Props) {
   const [editMode, setEditMode] = useState(false);
 
   const handleEdit = () => {
@@ -19,7 +20,7 @@ export default function Profile({ userData }: Props) {
   if (editMode)
     return (
       <>
-        <EditProfile handleEdit={handleEdit} userData={userData} />
+        <EditProfile handleEdit={handleEdit} userData={userData} updateUserData={updateUserData}/>
       </>
     );
   if (!editMode)

@@ -34,6 +34,28 @@ const fetchUserOffers = async () => {
   }
 };
 
+const updateUserData = async (updatedUserData: User) => {
+  const userData = await fetchUserData();
+
+  userData &&
+    (await prisma.userInfo.update({
+      where: {
+        personalEmail: userData?.personalEmail,
+      },
+      data: {
+        personalImage: updatedUserData.personalImage,
+        personalName: updatedUserData.personalName,
+        personalEmail: updatedUserData.personalEmail,
+        businessImage: updatedUserData.businessImage,
+        businessName: updatedUserData.businessName,
+        businessEmail: updatedUserData.businessEmail,
+        businessPhoneNr: updatedUserData.businessPhoneNr,
+        businessAdress: updatedUserData.businessAdress,
+      },
+    }));
+  return new Response('Updated User Information');
+};
+
 export default async function page() {
   const userData = await fetchUserData();
   const donationData = await fetchUserOffers();
@@ -41,7 +63,7 @@ export default async function page() {
   if (userData && donationData) {
     return (
       <>
-        <AccountPage userData={userData} donationData={donationData} />
+        <AccountPage userData={userData} donationData={donationData} updateUserData={updateUserData}/>
       </>
     );
   }
