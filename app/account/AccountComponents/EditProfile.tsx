@@ -1,7 +1,6 @@
 import Button from '@/app/Components/Button';
 import { User } from '@/app/types';
 import React, { useState } from 'react';
-import { updateUserData } from '../page';
 
 type Props = {
   handleEdit: Function;
@@ -29,7 +28,7 @@ export default function EditProfile({ handleEdit, userData }: Props) {
 
   const handleSubmit = (e:any) => {
     e.preventDefault()
-    updateUserData(profileValues)
+    // FETCH HERE
   }
 
   return (
