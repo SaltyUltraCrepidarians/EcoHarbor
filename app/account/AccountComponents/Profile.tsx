@@ -9,19 +9,20 @@ type Props = {
 };
 
 export default function Profile({ userData }: Props) {
-  const { data: session, status } = useSession();
-
   return (
     <section className="profile-wrapper">
-      <img src={userData.businessImage} alt="profile-image" />
+      <img src={userData.personalImage} alt="profile-image" />
       <h3>Welcome, {userData.personalName.split(' ')[0]}!</h3>
 
       <p>PERSONAL INFO: </p>
       <p>Personal name: {userData.personalName}</p>
-      <p>Personal email: {session?.user?.email}</p>
-      <p>BUSINESS INFO: </p>
-      <p>Phone number: {}</p>
-      <p>Adress:</p>
+      <p>Personal email: {userData.personalEmail}</p>
+      <p>BUSINESS INFO (Shown):</p>
+      <img src={userData.businessImage} alt="business-image" />
+      <p> Business Name: {userData.businessName}</p>
+      <p>Phone number: {userData.businessPhoneNr}</p>
+      <p>Adress: {userData.businessAdress}</p>
+      <p>Your Rating: {userData.rating}</p>
 
       <Button
         action={() => signOut({ callbackUrl: '/' })}
