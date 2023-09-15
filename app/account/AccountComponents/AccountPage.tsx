@@ -22,8 +22,6 @@ export default function page({ userData }: Props) {
     setSelection(e.currentTarget.name);
   };
 
-  console.log('this is happy userData', userData);
-
   return (
     <>
       <div className="account-buttons-wrapper">
