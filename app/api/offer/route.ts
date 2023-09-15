@@ -20,11 +20,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
       where: {
         personalEmail: session?.user?.email,
       },
-      // userInfo: {
-      //   connect: {
-      //     id:
-      //   }
-      // },
     });
     await prisma.donationInfo.create({
       data: {
@@ -44,5 +39,3 @@ export async function POST(req: NextRequest, res: NextResponse) {
   }
   return new Response('Posted to donationInfo');
 }
-
-

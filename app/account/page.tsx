@@ -7,7 +7,7 @@ import { User } from '../types';
 
 const prisma = new PrismaClient();
 
-const fetchData = async () => {
+const fetchUserData = async () => {
   const session = await getServerSession(authHandler);
 
   if (session?.user !== null && session?.user?.email !== null) {
@@ -24,7 +24,7 @@ const fetchData = async () => {
 };
 
 export default async function page() {
-  const userData = await fetchData();
+  const userData = await fetchUserData();
 
   if (userData) {
     return (
