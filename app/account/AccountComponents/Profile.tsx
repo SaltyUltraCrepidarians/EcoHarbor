@@ -44,11 +44,6 @@ export default function Profile({ userData }: Props) {
           text="Sign Out"
         />
         <Button action={handleEdit} className="account-button" text="Edit" />
-        <Button
-          action={() => alert('Delete Selected')}
-          className="account-button"
-          text="Delete"
-        />
       </section>
     );
 }

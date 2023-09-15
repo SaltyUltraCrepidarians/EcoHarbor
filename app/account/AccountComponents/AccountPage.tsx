@@ -6,6 +6,7 @@ import Profile from './Profile';
 import AccountForm from './AccountForm';
 import Giveaways from './Giveaways';
 import { OfferCardType, User } from '@/app/types';
+import './account.css'
 
 type Props = {
   userData: User;
@@ -25,6 +26,7 @@ export default function page({ userData, donationData }: Props) {
 
   return (
     <>
+    <section className='account-section'>
       <div className="account-buttons-wrapper">
         <button
           className="account-button"
@@ -52,6 +54,7 @@ export default function page({ userData, donationData }: Props) {
       {selection === form && <AccountForm />}
       {selection === giveaways && <Giveaways donationData={donationData}/>}
       <Footer />
+      </section>
     </>
   );
 }
