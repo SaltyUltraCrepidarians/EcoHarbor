@@ -8,7 +8,7 @@ export type OfferCardType = {
 };
 
 export type User = {
-  id: number;
+  id?: number;
   personalEmail: string;
   personalName: string;
   personalImage: string;
@@ -17,5 +17,5 @@ export type User = {
   businessPhoneNr: string;
   businessImage: string;
   businessAdress: string;
-  rating: number;
+  rating?: number;
 };
