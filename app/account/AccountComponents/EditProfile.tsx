@@ -1,14 +1,14 @@
 import Button from '@/app/Components/Button';
 import { User } from '@/app/types';
 import React, { useState } from 'react';
+import { updateUserData } from '../page';
 
 type Props = {
-  updateUserData: Function;
   handleEdit: Function;
   userData: User;
 };
 
-export default function EditProfile({ handleEdit, userData, updateUserData }: Props) {
+export default function EditProfile({ handleEdit, userData }: Props) {
   const [profileValues, setProfileValues] = useState<User>({
     personalImage: userData.personalImage,
     personalName: userData.personalName,
@@ -27,7 +27,8 @@ export default function EditProfile({ handleEdit, userData, updateUserData }: Pr
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e:any) => {
+    e.preventDefault()
     updateUserData(profileValues)
   }
 

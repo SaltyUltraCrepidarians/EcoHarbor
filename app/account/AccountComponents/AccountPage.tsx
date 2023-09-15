@@ -9,12 +9,11 @@ import { OfferCardType, User } from '@/app/types';
 import './account.css'
 
 type Props = {
-  updateUserData: Function;
   userData: User;
   donationData: OfferCardType[];
 };
 
-export default function page({ userData, donationData, updateUserData }: Props) {
+export default function page({ userData, donationData }: Props) {
   const [selection, setSelection] = useState('profile');
 
   const profile = 'profile';
@@ -51,7 +50,7 @@ export default function page({ userData, donationData, updateUserData }: Props) 
           Giveaways
         </button>
       </div>
-      {selection === profile && <Profile userData={userData} updateUserData={updateUserData}/>}
+      {selection === profile && <Profile userData={userData}/>}
       {selection === form && <AccountForm />}
       {selection === giveaways && <Giveaways donationData={donationData}/>}
       <Footer />

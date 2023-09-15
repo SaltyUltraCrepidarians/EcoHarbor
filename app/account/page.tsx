@@ -34,7 +34,7 @@ const fetchUserOffers = async () => {
   }
 };
 
-const updateUserData = async (updatedUserData: User) => {
+export const updateUserData = async (updatedUserData: User) => {
   const userData = await fetchUserData();
 
   userData &&
@@ -63,7 +63,7 @@ export default async function page() {
   if (userData && donationData) {
     return (
       <>
-        <AccountPage userData={userData} donationData={donationData} updateUserData={updateUserData}/>
+        <AccountPage userData={userData} donationData={donationData}/>
       </>
     );
   }
