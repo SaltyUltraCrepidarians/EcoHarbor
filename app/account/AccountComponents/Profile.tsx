@@ -1,6 +1,6 @@
 import Button from '@/app/Components/Button';
 import { signOut, useSession } from 'next-auth/react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Profile.css';
 import { User } from '@/app/types';
 import EditProfile from './EditProfile';
@@ -11,6 +11,7 @@ type Props = {
 
 export default function Profile({ userData }: Props) {
   const [editMode, setEditMode] = useState(false);
+  // useEffect(() => {}, [editMode]);
 
   const handleEdit = () => {
     setEditMode(!editMode);
@@ -19,7 +20,7 @@ export default function Profile({ userData }: Props) {
   if (editMode)
     return (
       <>
-        <EditProfile handleEdit={handleEdit} userData={userData}/>
+        <EditProfile handleEdit={handleEdit} userData={userData} />
       </>
     );
   if (!editMode)
