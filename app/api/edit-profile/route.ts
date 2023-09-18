@@ -2,12 +2,16 @@ import { PrismaClient } from '@prisma/client';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 import { authHandler } from '../auth/[...nextauth]/route';
+import { log } from 'console';
 
 const prisma = new PrismaClient();
 
-export async function UPDATE(req: NextRequest, res: NextResponse) {
-  const updatedUserProfile = JSON.parse(await req.text());
-  console.log(updatedUserProfile)
+export async function PATCH(req: NextRequest, res: NextResponse) {
+  const updatedUserProfile = await req.text();
+  const updatedUserProfileData = JSON.parse(updatedUserProfile);
+  console.log('this is updarted prof data: ', updatedUserProfileData);
+
+  console.log(updatedUserProfile);
 
   const session = await getServerSession(authHandler);
 
@@ -17,11 +21,11 @@ export async function UPDATE(req: NextRequest, res: NextResponse) {
         personalEmail: session.user.email,
       },
       data: {
-        personalName: updatedUserProfile.personalName,
-        businessName: updatedUserProfile.businessName,
-        businessEmail: updatedUserProfile.businessEmail,
-        businessPhoneNr: updatedUserProfile.businessPhoneNr,
-        businessAdress: updatedUserProfile.businessAdress,
+        personalName: updatedUserProfileData.personalName,
+        businessName: updatedUserProfileData.businessName,
+        businessEmail: updatedUserProfileData.businessEmail,
+        businessPhoneNr: updatedUserProfileData.businessPhoneNr,
+        businessAdress: updatedUserProfileData.businessAdress,
       },
     });
   }

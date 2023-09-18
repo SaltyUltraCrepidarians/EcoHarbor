@@ -29,12 +29,14 @@ export default function EditProfile({ handleEdit, userData }: Props) {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await fetch('/api/edit-profile', {
-      method: 'UPDATE',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(profileValues),
     });
+    console.log('this is res: ', res);
+    
     return res.text;
   };
 
