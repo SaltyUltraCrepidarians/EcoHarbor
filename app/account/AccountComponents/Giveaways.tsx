@@ -10,7 +10,7 @@ export default function Giveaways({ donationData }: Props) {
   return (
     <>
       {donationData.map((donation) => {
-        return <OfferCard donationOffer={donation} />;
+        return <OfferCard donationOffer={donation} isAdmin={true} />;
       })}
     </>
   );

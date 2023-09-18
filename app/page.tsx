@@ -26,11 +26,11 @@ export default async function Home() {
 
   return (
     <>
-       <Navbar />
+      <Navbar />
       <main className="offer-cards-main">
         <div className="">
           {donationInfo.map((donationOffer) => (
-            <OfferCard donationOffer={donationOffer}  isAdmin={false}/>
+            <OfferCard donationOffer={donationOffer} isAdmin={false} />
           ))}
         </div>
       </main>

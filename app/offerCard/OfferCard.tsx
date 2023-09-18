@@ -9,6 +9,17 @@ type Props = {
 
 export default function OfferCard({ donationOffer, isAdmin }: Props) {
  
+  const handleDelete = async () => {
+    const res = await fetch('/api/offer', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(donationOffer.id),
+    });
+  };
+
+
   return (
     <section className="offer-card-section">
       { isAdmin && <button>Delete</button>}
