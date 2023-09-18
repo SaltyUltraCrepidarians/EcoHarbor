@@ -4,11 +4,14 @@ import './OfferCard.css';
 
 type Props = {
   donationOffer: OfferCardType;
+  isAdmin: boolean
 };
 
-export default function OfferCard({ donationOffer }: Props) {
+export default function OfferCard({ donationOffer, isAdmin }: Props) {
+ 
   return (
     <section className="offer-card-section">
+      { isAdmin && <button>Delete</button>}
       <p>Description: {donationOffer.description}</p>
       <p>Available: {donationOffer.available}</p>
       <p>Location: {donationOffer.location}</p>

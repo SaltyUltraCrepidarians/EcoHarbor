@@ -27,7 +27,7 @@ export default async function LandingPage() {
       <main className="offer-cards-main">
         <div className="">
           {donationInfo.map((donationOffer) => (
-            <OfferCard donationOffer={donationOffer} />
+            <OfferCard donationOffer={donationOffer} isAdmin={true} />
           ))}
         </div>
       </main>
