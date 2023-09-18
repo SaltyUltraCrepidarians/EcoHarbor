@@ -39,3 +39,16 @@ export async function POST(req: NextRequest, res: NextResponse) {
   }
   return new Response('Posted to donationInfo');
 }
+
+export async function DELETE(req: NextRequest, res: NextResponse) {
+  const cardId = await req.text();
+  const cardIdParsed = await JSON.parse(cardId);
+
+  await prisma.donationInfo.delete({
+    where: {
+      id: cardIdParsed,
+    },
+  });
+
+  return new Response('donation Info Deleted');
+}

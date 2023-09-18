@@ -1,5 +1,4 @@
 import { PrismaClient } from '@prisma/client';
-import './Components/landingPage.css';
 import OfferCard from './offerCard/OfferCard';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';

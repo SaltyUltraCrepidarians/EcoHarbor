@@ -4,11 +4,10 @@ import './OfferCard.css';
 
 type Props = {
   donationOffer: OfferCardType;
-  isAdmin: boolean
+  isAdmin: boolean;
 };
 
 export default function OfferCard({ donationOffer, isAdmin }: Props) {
- 
   const handleDelete = async () => {
     const res = await fetch('/api/offer', {
       method: 'DELETE',
@@ -17,12 +16,12 @@ export default function OfferCard({ donationOffer, isAdmin }: Props) {
       },
       body: JSON.stringify(donationOffer.id),
     });
+    return res.text;
   };
-
 
   return (
     <section className="offer-card-section">
-      { isAdmin && <button>Delete</button>}
+      {isAdmin && <button onClick={handleDelete}>Delete</button>}
       <p>Description: {donationOffer.description}</p>
       <p>Available: {donationOffer.available}</p>
       <p>Location: {donationOffer.location}</p>

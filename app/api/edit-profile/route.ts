@@ -2,7 +2,6 @@ import { PrismaClient } from '@prisma/client';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 import { authHandler } from '../auth/[...nextauth]/route';
-import { log } from 'console';
 
 const prisma = new PrismaClient();
 
