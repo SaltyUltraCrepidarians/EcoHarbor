@@ -18,7 +18,7 @@ export default function EditProfile({ handleEdit, userData }: Props) {
     businessPhoneNr: userData.businessPhoneNr,
     businessAdress: userData.businessAdress,
   });
- 
+
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setProfileValues((prevState) => ({
       ...prevState,
@@ -26,10 +26,17 @@ export default function EditProfile({ handleEdit, userData }: Props) {
     }));
   };
 
-  const handleSubmit = (e:any) => {
-    e.preventDefault()
-    // FETCH HERE
-  }
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const res = await fetch('/api/edit-profile', {
+      method: 'UPDATE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(profileValues),
+    });
+    return res.text;
+  };
 
   return (
     <section className="profile-wrapper">
@@ -48,17 +55,6 @@ export default function EditProfile({ handleEdit, userData }: Props) {
             required
           />
         </div>
-
-        {/* <div className="label-input-wrap">
-          <label>Personal Email:</label>
-          <input
-            type="text"
-            name="personalEmail"
-            onChange={handleOnChange}
-            value={profileValues.personalEmail}
-            required
-          />
-        </div> */}
 
         <div className="label-input-wrap">
           <p>BUSINESS INFO (Shown):</p>
