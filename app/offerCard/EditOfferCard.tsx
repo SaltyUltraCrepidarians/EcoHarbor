@@ -55,6 +55,7 @@ export default function EditOfferCard({ handleEdit, donationOffer }: Props) {
             className="account-button"
             text="Cancel"
           />
+          <button className="account-button">Submit</button>
 
           <div className="label-input-wrap">
             <label>Description:</label>
@@ -101,12 +102,11 @@ export default function EditOfferCard({ handleEdit, donationOffer }: Props) {
           </div>
 
           <p>Created at: {String(donationOffer.createdAt)}</p>
-          {/* <Button
-            action={() => handleDelete}
+          <Button
+            action={() => handleDelete()}
             className="account-button"
             text="Delete"
-          /> */}
-          <button>Submit</button>
+          />
         </form>
       </section>
     </>

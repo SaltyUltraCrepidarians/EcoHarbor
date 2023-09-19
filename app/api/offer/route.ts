@@ -5,13 +5,9 @@ import { authHandler } from '../auth/[...nextauth]/route';
 
 const prisma = new PrismaClient();
 
-// POST ONE OFFER CARD
 export async function POST(req: NextRequest, res: NextResponse) {
   const offerInfo = await req.text();
   const offerInfoData = await JSON.parse(offerInfo);
-
-  // USE getServerSession.email to find user in DB
-  // retrieve user ID
 
   const session = await getServerSession(authHandler);
 
