@@ -1,6 +1,8 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import { OfferCardType } from '../types';
 import './OfferCard.css';
+import EditOfferCard from './EditOfferCard';
 
 type Props = {
   donationOffer: OfferCardType;
@@ -8,25 +10,29 @@ type Props = {
 };
 
 export default function OfferCard({ donationOffer, isAdmin }: Props) {
-  const handleDelete = async () => {
-    const res = await fetch('/api/offer', {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(donationOffer.id),
-    });
-    return res.text;
+  const [editMode, setEditMode] = useState(false);
+
+  const handleEdit = () => {
+    setEditMode(!editMode);
   };
 
-  return (
-    <section className="offer-card-section">
-      {isAdmin && <button onClick={handleDelete}>Delete</button>}
-      <p>Description: {donationOffer.description}</p>
-      <p>Available: {donationOffer.available}</p>
-      <p>Location: {donationOffer.location}</p>
-      <p>About: {donationOffer.about}</p>
-      <p>Created at: {String(donationOffer.createdAt)}</p>
-    </section>
-  );
+  if (editMode)
+    return (
+      <>
+        <EditOfferCard handleEdit={handleEdit} donationOffer={donationOffer} />
+      </>
+    );
+
+  if (!editMode)
+    return (
+      <section className="offer-card-section">
+        {isAdmin && <button onClick={handleEdit}>Edit</button>}
+
+        <p>Description: {donationOffer.description}</p>
+        <p>Available: {donationOffer.available}</p>
+        <p>Location: {donationOffer.location}</p>
+        <p>About: {donationOffer.about}</p>
+        <p>Created at: {String(donationOffer.createdAt)}</p>
+      </section>
+    );
 }

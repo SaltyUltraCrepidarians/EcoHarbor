@@ -5,13 +5,9 @@ import { authHandler } from '../auth/[...nextauth]/route';
 
 const prisma = new PrismaClient();
 
-// POST ONE OFFER CARD
 export async function POST(req: NextRequest, res: NextResponse) {
   const offerInfo = await req.text();
   const offerInfoData = await JSON.parse(offerInfo);
-
-  // USE getServerSession.email to find user in DB
-  // retrieve user ID
 
   const session = await getServerSession(authHandler);
 
@@ -41,14 +37,29 @@ export async function POST(req: NextRequest, res: NextResponse) {
 }
 
 export async function DELETE(req: NextRequest, res: NextResponse) {
-  const cardId = await req.text();
-  const cardIdParsed = await JSON.parse(cardId);
+  const offerId = await req.text();
+  const parsedOfferId = await JSON.parse(offerId);
 
   await prisma.donationInfo.delete({
     where: {
-      id: cardIdParsed,
+      id: parsedOfferId,
     },
   });
+}
 
-  return new Response('donation Info Deleted');
+export async function PATCH(req: NextRequest, res: NextResponse) {
+  const offerInfo = await req.text();
+  const offerInfoData = await JSON.parse(offerInfo);
+
+  await prisma.donationInfo.update({
+    where: {
+      id: offerInfoData.id,
+    },
+    data: {
+      description: offerInfoData.description,
+      available: offerInfoData.available,
+      location: offerInfoData.location,
+      about: offerInfoData.about,
+    },
+  });
 }
