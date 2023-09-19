@@ -1,6 +1,7 @@
 import Button from '@/app/Components/Button';
 import { User } from '@/app/types';
 import React, { useState } from 'react';
+import ImageUpload from './ImageUpload';
 
 type Props = {
   handleEdit: Function;
@@ -45,7 +46,6 @@ export default function EditProfile({ handleEdit, userData }: Props) {
       <form onSubmit={handleSubmit}>
         <img src={userData.personalImage} alt="profile-image" />
         <h3>Welcome, {userData.personalName.split(' ')[0]}!</h3>
-
         <p>PERSONAL INFO: </p>
         <div className="label-input-wrap">
           <label>Personal Name:</label>
@@ -57,19 +57,23 @@ export default function EditProfile({ handleEdit, userData }: Props) {
             required
           />
         </div>
-
         <div className="label-input-wrap">
           <p>BUSINESS INFO (Shown):</p>
-          <label>Business Image:</label>
+
+        ################################
+        <p>BUSINESS IMAGE HERE</p>
+        {userData.businessImage}
+        <ImageUpload />
+        ################################
+          {/* <label>Business Image:</label>
           <input
             type="text"
             name="businessImage"
             onChange={handleOnChange}
             value={profileValues.businessImage}
             required
-          />
+          /> */}
         </div>
-
         <div className="label-input-wrap">
           <label>Business Name:</label>
           <input
@@ -80,7 +84,6 @@ export default function EditProfile({ handleEdit, userData }: Props) {
             required
           />
         </div>
-
         <div className="label-input-wrap">
           <label>Business Email:</label>
           <input
@@ -91,7 +94,6 @@ export default function EditProfile({ handleEdit, userData }: Props) {
             required
           />
         </div>
-
         <div className="label-input-wrap">
           <label>Phone Number:</label>
           <input
@@ -102,7 +104,6 @@ export default function EditProfile({ handleEdit, userData }: Props) {
             required
           />
         </div>
-
         <div className="label-input-wrap">
           <label>Business Adress:</label>
           <input
