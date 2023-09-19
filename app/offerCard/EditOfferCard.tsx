@@ -16,7 +16,6 @@ export default function EditOfferCard({ handleEdit, donationOffer }: Props) {
     about: donationOffer.about,
     createdAt: donationOffer.createdAt,
   });
-  console.log('offerinfodata', donationOffer.id);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setOfferValues((prevState) => ({

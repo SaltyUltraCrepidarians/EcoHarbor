@@ -8,9 +8,6 @@ const prisma = new PrismaClient();
 export async function PATCH(req: NextRequest, res: NextResponse) {
   const updatedUserProfile = await req.text();
   const updatedUserProfileData = JSON.parse(updatedUserProfile);
-  console.log('this is updarted prof data: ', updatedUserProfileData);
-
-  console.log(updatedUserProfile);
 
   const session = await getServerSession(authHandler);
 
