@@ -41,36 +41,29 @@ export async function POST(req: NextRequest, res: NextResponse) {
 }
 
 export async function DELETE(req: NextRequest, res: NextResponse) {
-  // const { id } = await req.text();
-  try {
-    const offerInfo = await req.text();
-    const offerInfoData = await JSON.parse(offerInfo);
+  const offerId = await req.text();
+  const parsedOfferId = await JSON.parse(offerId);
 
-    // USE getServerSession.email to find user in DB
-    // retrieve user ID
+  await prisma.donationInfo.delete({
+    where: {
+      id: parsedOfferId,
+    },
+  });
+}
 
-    const session = await getServerSession(authHandler);
+export async function PATCH(req: NextRequest, res: NextResponse) {
+  const offerInfo = await req.text();
+  const offerInfoData = await JSON.parse(offerInfo);
 
-    if (session?.user?.email) {
-      const databaseUser = await prisma.userInfo.findUnique({
-        where: {
-          personalEmail: session?.user?.email,
-        },
-      });
-
-      if (!databaseUser) {
-        return new Response('Giveaway not found', { status: 404 });
-      }
-
-      await prisma.donationInfo.delete({
-        where: {
-          id: offerInfoData,
-        },
-      });
-    }
-    return new Response('OfferCard deleted');
-  } catch (error) {
-    console.error('An error occurred while deleting the giveaway', error);
-    return new Response('Error deleting the giveaway', { status: 500 });
-  }
+  await prisma.donationInfo.update({
+    where: {
+      id: offerInfoData.id,
+    },
+    data: {
+      description: offerInfoData.description,
+      available: offerInfoData.available,
+      location: offerInfoData.location,
+      about: offerInfoData.about,
+    },
+  });
 }
