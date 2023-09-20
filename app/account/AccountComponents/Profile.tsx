@@ -33,7 +33,11 @@ export default function Profile({ userData }: Props) {
         <p>Personal name: {userData.personalName}</p>
         <p>Personal email: {userData.personalEmail}</p>
         <p>BUSINESS INFO (Shown):</p>
-        <img src={userData.businessImage} alt="business-image" />
+        <img
+          src={userData.businessImage}
+          alt="business-image"
+          className="business-image"
+        />
         <p>Business Name: {userData.businessName}</p>
         <p>Contact Email: {userData.businessEmail}</p>
         <p>Phone number: {userData.businessPhoneNr}</p>

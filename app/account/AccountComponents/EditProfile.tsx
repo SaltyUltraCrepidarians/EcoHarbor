@@ -59,12 +59,12 @@ export default function EditProfile({ handleEdit, userData }: Props) {
         </div>
         <div className="label-input-wrap">
           <p>BUSINESS INFO (Shown):</p>
-
-        ################################
-        <p>BUSINESS IMAGE HERE</p>
-        {userData.businessImage}
-        <ImageUpload />
-        ################################
+          ################################
+          <p>BUSINESS IMAGE HERE</p>
+          {userData.businessImage}
+          {profileValues.businessImage}
+          <ImageUpload />
+          ################################
           {/* <label>Business Image:</label>
           <input
             type="text"
