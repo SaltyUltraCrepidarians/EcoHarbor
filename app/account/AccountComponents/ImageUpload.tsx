@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+
+
 const ImageUpload = () => {
   const [file, setFile] = useState<File | null>(null);
 
@@ -13,6 +15,8 @@ const ImageUpload = () => {
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    console.log('this is the file: ', file);
+
     if (file) {
       try {
         const response = await fetch('/api/upload', {

@@ -20,6 +20,7 @@ export async function PATCH(req: NextRequest, res: NextResponse) {
         personalName: updatedUserProfileData.personalName,
         businessName: updatedUserProfileData.businessName,
         businessEmail: updatedUserProfileData.businessEmail,
+        //  businessImage: updatedUserProfile.businessImage,
         businessPhoneNr: updatedUserProfileData.businessPhoneNr,
         businessAdress: updatedUserProfileData.businessAdress,
       },
