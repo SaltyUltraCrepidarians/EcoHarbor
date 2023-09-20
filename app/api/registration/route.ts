@@ -31,4 +31,3 @@ export async function POST(req: NextRequest, res: NextResponse) {
   }
 }
 
-// GET ONE OFFER CARD
