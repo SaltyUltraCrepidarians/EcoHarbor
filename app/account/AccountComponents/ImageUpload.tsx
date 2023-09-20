@@ -1,3 +1,4 @@
+import { createClient } from '@supabase/supabase-js';
 import React, { useState } from 'react';
 
 const ImageUpload = () => {
@@ -7,22 +8,19 @@ const ImageUpload = () => {
     const selectedFile = e.target.files?.[0];
     if (selectedFile) {
       setFile(selectedFile);
+      console.log(file);
     }
   };
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (file) {
-      const formData = new FormData();
-      formData.append('image', file);
-
       try {
         const response = await fetch('/api/upload', {
           method: 'POST',
-          body: formData,
+          body: file,
         });
         console.log(response);
-        
       } catch (error) {
         console.error('Error:', error);
       }
@@ -32,9 +30,7 @@ const ImageUpload = () => {
   return (
     <div>
       <input type="file" accept="image/*" onChange={handleFileChange} />
-      <button onClick={handleSubmit} type="submit">
-        Upload
-      </button>
+      <button onClick={handleSubmit}>Upload</button>
     </div>
   );
 };
