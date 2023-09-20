@@ -6,7 +6,7 @@ import { createClient } from '@supabase/supabase-js';
 import { v4 as uuidv4 } from 'uuid';
 
 const supabase = createClient(
-  String(process.env.PROJECT_URL), // could be the PROJECT_URL or DATABASE_URL
+  String(process.env.PROJECT_URL),
   String(process.env.ANON_KEY),
   {
     auth: {
@@ -21,12 +21,14 @@ const prisma = new PrismaClient();
 
 const getUserId = async () => {
   const session = await getServerSession(authHandler);
+
   if (session?.user?.email) {
     const user = await prisma.userInfo.findUnique({
       where: {
         personalEmail: session?.user?.email,
       },
     });
+
     return user?.id;
   }
 };
@@ -41,15 +43,40 @@ async function uploadFile(file: Blob, userId: number) {
   if (error) {
     console.error(error);
   } else {
-    console.log('Image Uploaded - confirm it on supabase', data);
+    console.log('Image Uploaded');
+    return data;
   }
 }
+
+const addImageUrlToUser = async (fileUrl: string) => {
+  const session = await getServerSession(authHandler);
+  if (session?.user?.email) {
+    await prisma.userInfo.update({
+      where: {
+        personalEmail: session?.user?.email,
+      },
+      data: {
+        businessImage: fileUrl,
+      },
+    });
+    return new Response('Image URL added to user');
+  }
+};
 
 export async function POST(req: NextRequest, res: NextResponse) {
   const fileBuffer = await req.blob();
 
   const userId = await getUserId();
-  userId && await uploadFile(fileBuffer, userId);
+  const uploadedFile = userId && (await uploadFile(fileBuffer, userId));
   
-  return new Response('Image Uploaded');
+  if (uploadedFile && uploadedFile.path) {
+    
+    const fileUrl =
+      'https://kdkdfxqzjaigzdizmryv.supabase.co/storage/v1/object/public/user-images/' +
+      uploadedFile.path;
+      
+    addImageUrlToUser(fileUrl);
+  }
+
+  return new Response('Image Uploaded', res);
 }
