@@ -12,7 +12,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
   const session = await getServerSession(authHandler);
 
-  console.log('HAPPY REG INFO DATA', registrationInfoData);
 
   if (session?.user?.email) {
     await prisma.userInfo.update({

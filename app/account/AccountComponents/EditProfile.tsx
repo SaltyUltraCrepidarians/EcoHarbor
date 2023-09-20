@@ -36,7 +36,6 @@ export default function EditProfile({ handleEdit, userData }: Props) {
       },
       body: JSON.stringify(profileValues),
     });
-    console.log('this is res: ', res);
 
     return res.text;
   };
@@ -59,20 +58,10 @@ export default function EditProfile({ handleEdit, userData }: Props) {
         </div>
         <div className="label-input-wrap">
           <p>BUSINESS INFO (Shown):</p>
-          ################################
-          <p>BUSINESS IMAGE HERE</p>
+          <label>Business Image:</label>
           {userData.businessImage}
           {profileValues.businessImage}
           <ImageUpload />
-          ################################
-          {/* <label>Business Image:</label>
-          <input
-            type="text"
-            name="businessImage"
-            onChange={handleOnChange}
-            value={profileValues.businessImage}
-            required
-          /> */}
         </div>
         <div className="label-input-wrap">
           <label>Business Name:</label>

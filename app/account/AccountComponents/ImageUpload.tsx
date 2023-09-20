@@ -9,13 +9,11 @@ const ImageUpload = () => {
     const selectedFile = e.target.files?.[0];
     if (selectedFile) {
       setFile(selectedFile);
-      console.log(file);
     }
   };
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log('this is the file: ', file);
 
     if (file) {
       try {
@@ -26,7 +24,6 @@ const ImageUpload = () => {
             'Content-Type': 'image/jpeg',
           },
         });
-        console.log(response);
       } catch (error) {
         console.error('Error:', error);
       }

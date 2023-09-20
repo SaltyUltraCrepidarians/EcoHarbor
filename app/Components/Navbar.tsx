@@ -33,7 +33,6 @@ export default function Navbar() {
     (async () => {
       const newUser = JSON.parse(await checkIfNewUser());
       if (newUser.businessAdress === '') {
-        console.log('first login')
         router.push('/registration')
       }
     })();

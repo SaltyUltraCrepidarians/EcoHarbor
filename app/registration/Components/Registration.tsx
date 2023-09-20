@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './Registration.css';
 import { defaultRegistrationValues } from '@/app/account/AccountComponents/makeOfferDefaultValues';
 import { useRouter } from 'next/navigation';
+import ImageUpload from '@/app/account/AccountComponents/ImageUpload';
 
 export default function Registration() {
   const [registrationInfo, setRegistrationInfo] = useState(
@@ -77,14 +78,7 @@ export default function Registration() {
         </div>
 
         <div className="label-input-wrap">
-          {/* should be an upload */}
-          <label> Business Image</label>
-          <input
-            type="text"
-            name="businessImage"
-            onChange={handleChange}
-            value={registrationInfo.businessImage}
-          />
+         <ImageUpload/>
         </div>
 
         <div className="label-input-wrap">

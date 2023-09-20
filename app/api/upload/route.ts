@@ -35,7 +35,6 @@ async function uploadFile(file: Blob, userId: number) {
   if (error) {
     console.error(error);
   } else {
-    console.log('Image Uploaded');
     return data;
   }
 }
@@ -62,10 +61,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       'https://kdkdfxqzjaigzdizmryv.supabase.co/storage/v1/object/public/user-images/' +
       uploadedFile.path;
     addImageUrlToUser(fileUrl);
-    console.log('\n FILE URL ----> ', fileUrl)
   }
-  console.log('\n USER ID ----> ', userId)
-  console.log('\n FILE UPLOADED ----> ', uploadedFile)
   return new Response('Image Uploaded', res);
 }
 
