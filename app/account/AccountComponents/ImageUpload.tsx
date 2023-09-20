@@ -1,4 +1,3 @@
-import { createClient } from '@supabase/supabase-js';
 import React, { useState } from 'react';
 
 const ImageUpload = () => {
@@ -19,6 +18,9 @@ const ImageUpload = () => {
         const response = await fetch('/api/upload', {
           method: 'POST',
           body: file,
+          headers: {
+            'Content-Type': 'image/jpeg',
+          },
         });
         console.log(response);
       } catch (error) {
