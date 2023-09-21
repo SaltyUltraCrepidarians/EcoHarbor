@@ -9,6 +9,7 @@ const fetchDonationInfo = async () => {
   const donationInfo = await prisma.donationInfo.findMany({
     select: {
       id: true,
+      cardBusinessImage: true,
       description: true,
       available: true,
       location: true,
