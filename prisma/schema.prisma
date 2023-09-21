@@ -11,14 +11,15 @@ datasource db {
 }
 
 model DonationInfo {
-  id          Int      @id @default(autoincrement())
-  userInfoId  Int
-  userInfo    UserInfo @relation(fields: [userInfoId], references: [id])
-  description String
-  available   String
-  location    String
-  about       String
-  createdAt   DateTime @default(now())
+  id                Int      @id @default(autoincrement())
+  userInfoId        Int
+  userInfo          UserInfo @relation(fields: [userInfoId, cardBusinessImage], references: [id, businessImage])
+  cardBusinessImage String 
+  description       String
+  available         String
+  location          String
+  about             String
+  createdAt         DateTime @default(now())
 }
 
 model UserInfo {
@@ -30,7 +31,8 @@ model UserInfo {
   businessName    String
   businessEmail   String
   businessPhoneNr String
-  businessImage   String
+  businessImage   String   
+  @@unique([id, businessImage])     
   businessAdress  String
   rating          Int
 }

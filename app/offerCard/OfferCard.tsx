@@ -27,7 +27,11 @@ export default function OfferCard({ donationOffer, isAdmin }: Props) {
     return (
       <section className="offer-card-section">
         {isAdmin && <button onClick={handleEdit}>Edit</button>}
-
+        <img
+          className="business-image"
+          src={donationOffer.cardBusinessImage}
+          alt="do-better-next-time"
+        />
         <p>Description: {donationOffer.description}</p>
         <p>Available: {donationOffer.available}</p>
         <p>Location: {donationOffer.location}</p>
