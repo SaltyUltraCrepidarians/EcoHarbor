@@ -28,11 +28,9 @@ export default async function Home() {
     <>
       <Navbar />
       <main className="offer-cards-main">
-        <div className="">
-          {donationInfo.map((donationOffer) => (
-            <OfferCard donationOffer={donationOffer} isAdmin={false} />
-          ))}
-        </div>
+        {donationInfo.map((donationOffer) => (
+          <OfferCard donationOffer={donationOffer} isAdmin={false} />
+        ))}
       </main>
       <Footer />
     </>
