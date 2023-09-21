@@ -4,8 +4,7 @@ import { getServerSession } from 'next-auth';
 import { authHandler } from '../api/auth/[...nextauth]/route';
 import { PrismaClient } from '@prisma/client';
 import { User } from '../types';
-
-const prisma = new PrismaClient();
+import prisma from '@/prisma/prismaConnect';
 
 const fetchUserData = async () => {
   const session = await getServerSession(authHandler);
