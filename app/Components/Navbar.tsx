@@ -1,7 +1,7 @@
 'use client';
 import './Navbar.css';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import logo from '../assets/logo-no-background.png';
 import { useSession } from 'next-auth/react';
