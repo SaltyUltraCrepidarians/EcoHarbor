@@ -14,7 +14,8 @@ model DonationInfo {
   id                Int      @id @default(autoincrement())
   userInfoId        Int
   userInfo          UserInfo @relation(fields: [userInfoId, cardBusinessImage], references: [id, businessImage])
-  cardBusinessImage String 
+  cardBusinessImage String
+  // cardBusinessName  String
   description       String
   available         String
   location          String
@@ -31,8 +32,9 @@ model UserInfo {
   businessName    String
   businessEmail   String
   businessPhoneNr String
-  businessImage   String   
-  @@unique([id, businessImage])     
+  businessImage   String
   businessAdress  String
   rating          Int
+
+  @@unique([id, businessImage])
 }

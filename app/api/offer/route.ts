@@ -24,7 +24,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
             id: databaseUser?.id,
           },
         },
-
+        
         userInfoId: offerInfoData.userInfoId,
         description: offerInfoData.description,
         available: offerInfoData.available,

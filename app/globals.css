@@ -6,7 +6,10 @@
 text colour:  #636363; 
 background colour: #eee
 card backgroud colour: #ccc,
-#eee
+app-background: #fafafa
+
+signature-green: #C4DA94
+
 */
 * {
   box-sizing: border-box;
@@ -14,7 +17,7 @@ card backgroud colour: #ccc,
 html,
 body,
 head {
-  background-color: #f7f7f7;
+  background-color: #fafafa;
     /* background-color: whitesmoke; */
   margin: 0;
   padding: 0;

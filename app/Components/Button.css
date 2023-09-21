@@ -7,8 +7,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  border-top: solid 1px black;
+  background-color: #C4DA94;
+  border-top: solid 1px #ccc;
 }
 
 .footer-button-loggedIn{
@@ -20,8 +20,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  border-top: solid 1px black;
-  color: #636363;
+  background-color: #C4DA94;
+  border-top: solid 1px #ccc;
+  color: #fff;
   text-decoration: none;
 }
