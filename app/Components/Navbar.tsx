@@ -41,7 +41,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <Link href="/" className="">
-        <Image className='logo-image' alt="Logo" src={logo} width={80} />
+        <Image className="logo-image" alt="Logo" src={logo} width={60} />
       </Link>
     </nav>
   );

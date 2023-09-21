@@ -1,5 +1,6 @@
 .offer-card-section {
-  background-image: linear-gradient(#ccc, #eee);
+  background-image: linear-gradient(#ccc 70%, #eee);
+    /* background-image: linear-gradient(to top, rgba(255, 0, 0, 0), rgba(255, 0, 0, 1)); */
   border-radius: 8px;
   margin: 0 0 32px;
   width: 100%;
