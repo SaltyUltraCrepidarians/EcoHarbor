@@ -71,7 +71,7 @@ export default function EditOfferCard({ handleEdit, donationOffer }: Props) {
             <label>Available:</label>
             <input
               type="text"
-              name="description"
+              name="available"
               onChange={handleOnChange}
               value={offerValues.available}
               required
