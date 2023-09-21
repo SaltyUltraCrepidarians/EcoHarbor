@@ -36,7 +36,7 @@ export default function EditProfile({ handleEdit, userData }: Props) {
       },
       body: JSON.stringify(profileValues),
     });
-
+    console.log(res)
     return res.text;
   };
 
@@ -59,8 +59,8 @@ export default function EditProfile({ handleEdit, userData }: Props) {
         <div className="label-input-wrap">
           <p>BUSINESS INFO (Shown):</p>
           <label>Business Image:</label>
-          {userData.businessImage}
-          {profileValues.businessImage}
+          <img className='business-image' src={userData.businessImage} alt="business-image" />
+          
           <ImageUpload />
         </div>
         <div className="label-input-wrap">

@@ -1,6 +1,6 @@
 export type OfferCardType = {
   id?: number;
-  cardBusinessImage: string;
+  cardBusinessImage?: string;
   description: string;
   available: string;
   location: string;
