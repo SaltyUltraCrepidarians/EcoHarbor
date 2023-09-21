@@ -32,7 +32,7 @@ export default function Navbar() {
 
     (async () => {
       const newUser = JSON.parse(await checkIfNewUser());
-      if (newUser.businessAdress === '') {
+      if (newUser && newUser.businessAdress === '') {
         router.push('/registration')
       }
     })();
