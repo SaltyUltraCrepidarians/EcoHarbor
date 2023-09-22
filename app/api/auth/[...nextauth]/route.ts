@@ -3,8 +3,8 @@ import type { NextAuthOptions, User } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import dotenv from 'dotenv';
 import { PrismaClient } from '@prisma/client';
+import prisma from '@/prisma/prismaConnect';
 
-const prisma = new PrismaClient();
 dotenv.config();
 
 const id = String(process.env.CLIENT_ID);

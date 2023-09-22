@@ -8,10 +8,14 @@ type Props = {
 
 export default function Giveaways({ donationData }: Props) {
   return (
-    <>
-      {donationData.map((donation) => {
-        return <OfferCard donationOffer={donation} isAdmin={true} />;
+    <main className='giveaway-main'>
+      {donationData.map((donation, index) => {
+        return (
+          <section className="offer-card-section" key={index}>
+            <OfferCard donationOffer={donation} isAdmin={true} />
+          </section>
+        );
       })}
-    </>
+    </main>
   );
 }

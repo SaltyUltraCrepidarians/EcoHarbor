@@ -1,10 +1,7 @@
-import { PrismaClient } from '@prisma/client';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 import { authHandler } from '../auth/[...nextauth]/route';
-
-const prisma = new PrismaClient();
-
+import prisma from '@/prisma/prismaConnect';
 
 export async function POST(req: NextRequest, res: NextResponse) {
   const userData = await req.text();

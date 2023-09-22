@@ -2,8 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import OfferCard from './offerCard/OfferCard';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
-
-const prisma = new PrismaClient();
+import prisma from '@/prisma/prismaConnect';
 
 const fetchDonationInfo = async () => {
   const donationInfo = await prisma.donationInfo.findMany({
@@ -28,8 +27,10 @@ export default async function Home() {
     <>
       <Navbar />
       <main className="offer-cards-main">
-        {donationInfo.map((donationOffer) => (
-          <OfferCard donationOffer={donationOffer} isAdmin={false} />
+        {donationInfo.map((donationOffer, index) => (
+          <section className="offer-card-section" key={index}>
+            <OfferCard donationOffer={donationOffer} isAdmin={false} />
+          </section>
         ))}
       </main>
       <Footer />
