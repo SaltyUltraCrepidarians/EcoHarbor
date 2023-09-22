@@ -13,7 +13,7 @@ type Props = {
   donationData: OfferCardType[];
 };
 
-export default function page({ userData, donationData }: Props) {
+export default function AccountPage({ userData, donationData }: Props) {
   const [selection, setSelection] = useState('profile');
 
   const profile = 'profile';
